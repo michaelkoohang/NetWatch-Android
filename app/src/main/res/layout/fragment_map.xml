@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:background="#FFFFFF"
+  android:fitsSystemWindows="true"
+  tools:context=".ui.record.MapFragment">
+
+  <com.mapbox.mapboxsdk.maps.MapView
+    android:id="@+id/mapView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.0"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.0">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+  </com.mapbox.mapboxsdk.maps.MapView>
+
+  <Button
+    android:id="@+id/startButton"
+    android:layout_width="100dp"
+    android:layout_height="100dp"
+    android:layout_marginBottom="24dp"
+    android:background="@drawable/button_start_stop"
+    android:fontFamily="@font/work_sans_semibold"
+    android:hapticFeedbackEnabled="true"
+    android:text="@string/record_start"
+    android:textAlignment="center"
+    android:textColor="@color/green"
+    android:textSize="24sp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent" />
+
+  <Button
+    android:id="@+id/stopButton"
+    android:layout_width="100dp"
+    android:layout_height="100dp"
+    android:layout_marginBottom="24dp"
+    android:background="@drawable/button_start_stop"
+    android:fontFamily="@font/work_sans_semibold"
+    android:hapticFeedbackEnabled="true"
+    android:text="@string/record_stop"
+    android:textAlignment="center"
+    android:textColor="@color/green"
+    android:textSize="24sp"
+    android:visibility="gone"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent" />
+
+  <ImageButton
+    android:id="@+id/currentLocationButton"
+    android:layout_width="50dp"
+    android:layout_height="50dp"
+    android:layout_marginStart="62dp"
+    android:layout_marginBottom="49dp"
+    android:background="@drawable/button_location"
+    android:contentDescription="@string/cd_record_location_image_description"
+    android:elevation="2dp"
+    android:hapticFeedbackEnabled="true"
+    android:padding="12dp"
+    android:scaleType="fitXY"
+    android:src="@drawable/ic_location"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintStart_toStartOf="@+id/record_guideline"
+    android:tint="@color/green" />
+
+  <androidx.constraintlayout.widget.Guideline
+    android:id="@+id/record_guideline"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    app:layout_constraintGuide_percent="0.5"/>
+
+  <androidx.cardview.widget.CardView
+    android:id="@+id/timeCard"
+    android:layout_width="wrap_content"
+    android:layout_height="50dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="16dp"
+    android:visibility="gone"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="3dp"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+
+      <TextView
+        android:id="@+id/timeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/work_sans_medium"
+        android:text="@string/record_time"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+  </androidx.cardview.widget.CardView>
+
+  <androidx.cardview.widget.CardView
+    android:id="@+id/distanceCard"
+    android:layout_width="0dp"
+    android:layout_height="50dp"
+    android:layout_marginTop="8dp"
+    android:visibility="gone"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="3dp"
+    app:layout_constraintStart_toStartOf="@+id/timeCard"
+    app:layout_constraintTop_toBottomOf="@+id/timeCard">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+
+      <TextView
+        android:id="@+id/detailDistanceText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/work_sans_medium"
+        android:text="0.00"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+  </androidx.cardview.widget.CardView>
+
+  <androidx.cardview.widget.CardView
+    android:id="@+id/connectedCard"
+    android:layout_width="wrap_content"
+    android:layout_height="50dp"
+    android:layout_marginTop="8dp"
+    android:visibility="gone"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="3dp"
+    app:layout_constraintStart_toStartOf="@+id/timeCard"
+    app:layout_constraintTop_toBottomOf="@+id/distanceCard">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+
+      <ImageView
+        android:id="@+id/connectedImg"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:contentDescription="@string/cd_record_connected_image_description"
+        android:src="@drawable/ic_connnected"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/green" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+  </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

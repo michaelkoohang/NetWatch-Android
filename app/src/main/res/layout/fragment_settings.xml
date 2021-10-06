@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:background="#FFFFFF"
+  tools:context=".ui.settings.SettingsFragment">
+
+  <TextView
+    android:id="@+id/settings_title"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="24dp"
+    android:layout_marginTop="18dp"
+    android:fontFamily="@font/work_sans_medium"
+    android:text="@string/menu_settings"
+    android:textColor="@color/black"
+    android:textSize="28sp"
+    android:textStyle="normal"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
+  <TextView
+    android:id="@+id/set_about_text"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:elevation="8dp"
+    android:fontFamily="@font/work_sans_medium"
+    android:text="About"
+    android:textColor="@color/black"
+    android:textSize="18sp"
+    app:layout_constraintBottom_toBottomOf="@+id/set_about_btn"
+    app:layout_constraintStart_toStartOf="@+id/set_about_btn"
+    app:layout_constraintTop_toTopOf="@+id/set_about_btn" />
+
+  <Button
+    android:id="@+id/set_about_btn"
+    style="@android:style/Widget.Material.Button.Colored"
+    android:layout_width="0dp"
+    android:layout_height="60dp"
+    android:layout_marginStart="24dp"
+    android:layout_marginTop="16dp"
+    android:layout_marginEnd="24dp"
+    android:background="@drawable/button_settings"
+    android:elevation="0dp"
+    android:padding="0dp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/settings_title" />
+
+  <ImageView
+    android:id="@+id/set_about_chevron"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="16dp"
+    android:elevation="8dp"
+    android:src="@drawable/ic_chevron_right"
+    android:tint="@color/green"
+    app:layout_constraintBottom_toBottomOf="@+id/set_about_btn"
+    app:layout_constraintEnd_toEndOf="@+id/set_about_btn"
+    app:layout_constraintTop_toTopOf="@+id/set_about_btn" />
+
+  <TextView
+    android:id="@+id/set_privacy_text"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:elevation="8dp"
+    android:fontFamily="@font/work_sans_medium"
+    android:text="Privacy"
+    android:textColor="@color/black"
+    android:textSize="18sp"
+    app:layout_constraintBottom_toBottomOf="@+id/set_privacy_btn"
+    app:layout_constraintStart_toStartOf="@+id/set_privacy_btn"
+    app:layout_constraintTop_toTopOf="@+id/set_privacy_btn" />
+
+  <Button
+    android:id="@+id/set_privacy_btn"
+    style="@android:style/Widget.Material.Button.Colored"
+    android:layout_width="0dp"
+    android:layout_height="60dp"
+    android:layout_marginStart="24dp"
+    android:layout_marginTop="16dp"
+    android:layout_marginEnd="24dp"
+    android:background="@drawable/button_settings"
+    android:elevation="0dp"
+    android:padding="0dp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/set_about_btn" />
+
+  <ImageView
+    android:id="@+id/set_privacy_chevron"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="16dp"
+    android:elevation="8dp"
+    android:src="@drawable/ic_chevron_right"
+    android:tint="@color/green"
+    app:layout_constraintBottom_toBottomOf="@+id/set_privacy_btn"
+    app:layout_constraintEnd_toEndOf="@+id/set_privacy_btn"
+    app:layout_constraintTop_toTopOf="@+id/set_privacy_btn" />
+
+  <TextView
+    android:id="@+id/set_terms_text"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:elevation="8dp"
+    android:fontFamily="@font/work_sans_medium"
+    android:text="Terms and Conditions"
+    android:textColor="@color/black"
+    android:textSize="18sp"
+    app:layout_constraintBottom_toBottomOf="@+id/set_terms_btn"
+    app:layout_constraintStart_toStartOf="@+id/set_terms_btn"
+    app:layout_constraintTop_toTopOf="@+id/set_terms_btn" />
+
+  <Button
+    android:id="@+id/set_terms_btn"
+    style="@android:style/Widget.Material.Button.Colored"
+    android:layout_width="0dp"
+    android:layout_height="60dp"
+    android:layout_marginStart="24dp"
+    android:layout_marginTop="16dp"
+    android:layout_marginEnd="24dp"
+    android:background="@drawable/button_settings"
+    android:elevation="0dp"
+    android:padding="0dp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/set_privacy_btn" />
+
+  <ImageView
+    android:id="@+id/set_terms_chevron"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="16dp"
+    android:elevation="8dp"
+    android:src="@drawable/ic_chevron_right"
+    android:tint="@color/green"
+    app:layout_constraintBottom_toBottomOf="@+id/set_terms_btn"
+    app:layout_constraintEnd_toEndOf="@+id/set_terms_btn"
+    app:layout_constraintTop_toTopOf="@+id/set_terms_btn" />
+
+  <TextView
+    android:id="@+id/set_id_text"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:elevation="8dp"
+    android:fontFamily="@font/work_sans_medium"
+    android:text="Your ID"
+    android:textColor="@color/black"
+    android:textSize="18sp"
+    app:layout_constraintBottom_toBottomOf="@+id/set_id_btn"
+    app:layout_constraintStart_toStartOf="@+id/set_id_btn"
+    app:layout_constraintTop_toTopOf="@+id/set_id_btn" />
+
+  <Button
+    android:id="@+id/set_id_btn"
+    style="@android:style/Widget.Material.Button.Colored"
+    android:layout_width="0dp"
+    android:layout_height="60dp"
+    android:layout_marginStart="24dp"
+    android:layout_marginTop="16dp"
+    android:layout_marginEnd="24dp"
+    android:background="@drawable/button_settings"
+    android:elevation="0dp"
+    android:padding="0dp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/set_terms_btn" />
+
+  <ImageView
+    android:id="@+id/set_id_image"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="16dp"
+    android:elevation="8dp"
+    android:src="@drawable/ic_content_copy"
+    android:tint="@color/green"
+    app:layout_constraintBottom_toBottomOf="@+id/set_id_btn"
+    app:layout_constraintEnd_toEndOf="@+id/set_id_btn"
+    app:layout_constraintTop_toTopOf="@+id/set_id_btn" />
+
+  <TextView
+    android:id="@+id/set_export_text"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:elevation="8dp"
+    android:fontFamily="@font/work_sans_medium"
+    android:text="Export"
+    android:textColor="@color/black"
+    android:textSize="18sp"
+    app:layout_constraintBottom_toBottomOf="@+id/set_export_btn"
+    app:layout_constraintStart_toStartOf="@+id/set_export_btn"
+    app:layout_constraintTop_toTopOf="@+id/set_export_btn" />
+
+  <Button
+    android:id="@+id/set_export_btn"
+    style="@android:style/Widget.Material.Button.Colored"
+    android:layout_width="0dp"
+    android:layout_height="60dp"
+    android:layout_marginStart="24dp"
+    android:layout_marginTop="16dp"
+    android:layout_marginEnd="24dp"
+    android:background="@drawable/button_settings"
+    android:elevation="0dp"
+    android:padding="0dp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/set_id_btn" />
+
+  <ImageView
+    android:id="@+id/set_export_image"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="16dp"
+    android:elevation="8dp"
+    android:src="@drawable/ic_file_download"
+    android:tint="@color/green"
+    app:layout_constraintBottom_toBottomOf="@+id/set_export_btn"
+    app:layout_constraintEnd_toEndOf="@+id/set_export_btn"
+    app:layout_constraintTop_toTopOf="@+id/set_export_btn" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

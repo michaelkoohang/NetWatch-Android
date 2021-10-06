@@ -1,0 +1,79 @@
+<resources>
+  <!-- App -->
+  <string name='app_name'>NetWatch</string>
+  <string name='mapbox_access_token'>pk.eyJ1IjoibWljaGFlbGtvb2hhbmciLCJhIjoiY2tra292bXl4MGQwcDJ2cGQxMjY5azQzbyJ9.swfcjAiWboKwlPH2uHT7nA</string>
+
+  <!-- Menu -->
+  <string name='menu_recordings'>Recordings</string>
+  <string name='menu_record'>Record</string>
+  <string name='menu_settings'>Settings</string>
+
+  <!-- Location Permissions -->
+  <string name='permission_description'>NetWatch needs your permission to access location and network info in the background before you can start recording.</string>
+  <string name='permission_title'>Permissions</string>
+  <string name='permission_btn'>Enable Permissions</string>
+  <string name='permission_dialog_text'>NetWatch collects location and network data to enable network measurement even when the app is closed or not in use. We do this so you don\'t have to keep the app open while you record. The data collected is used to visualize network connectivity on maps and other visualizations.</string>
+  <string name='permission_dialog_ok'>Ok</string>
+  <string name='permission_dialog_cancel'>Cancel</string>
+
+  <!-- Content Descriptions -->
+  <string name='cd_netwatch_logo'>netwatch logo</string>
+  <string name='cd_record_location_image_description'>Current location image</string>
+  <string name='cd_record_connected_image_description'>Connected image</string>
+
+  <!-- Onboarding -->
+
+  <!-- Start -->
+  <string name='onb_welcome'>Welcome to NetWatch!</string>
+
+  <!-- Privacy -->
+  <string name='onb_privacy_title'>Privacy and Terms</string>
+  <string name='onb_privacy_text'>You must agree to the NetWatch privacy policy and terms and conditions before you use the app.</string>
+  <string name='onb_privacy_terms_agreement'>I agree to the privacy policy and terms and conditions.</string>
+  <string name='onb_privacy_policy_button'>Privacy Policy</string>
+  <string name='onb_privacy_terms_button'>Terms and Conditions</string>
+
+  <!-- Carrier -->
+  <string name='onb_carrier_title'>Carrier</string>
+  <string name='onb_carrier_text'>We need your carrier info to see which cellular provider have certain connectivity. All we\'ll store is the name of your provider (i.e. Verizon).</string>
+  <string name='onb_carrier_button'>Get Carrier</string>
+
+  <!-- ID -->
+  <string name='onb_id_title'>Your ID</string>
+  <string name='onb_id_text'>You need to register an ID before you can start recording. We use this to keep track of your recordings without knowing who you are.</string>
+  <string name='onb_id_button'>Get ID</string>
+
+  <!-- End -->
+  <string name='onb_done'>Done</string>
+  <string name='onb_end_text'>All set!\nLet\'s go!</string>
+
+  <!-- Recordings -->
+
+  <string name='recordings_your_recordings'>Your recordings</string>
+  <string name='recordings_recent_activity'>Recent Activity</string>
+  <string name='recordings_recordings'>recordings</string>
+  <string name='recordings_time'>time</string>
+  <string name='recordings_distance'>distance</string>
+  <string name='recordings_connectivity'>connectivity</string>
+  <string name='recordings_carrier'>carrier</string>
+
+  <!-- Record -->
+  <string name='record_time'>00:00:00</string>
+  <string name='record_stop'>Stop</string>
+  <string name='record_start'>Start</string>
+
+  <!-- Settings -->
+  <string name='settings_id_label'>Your ID: %1$s</string>
+  <string name="settings_export_text">%1$o recording(s) cached</string>
+
+  <!-- Error -->
+  <string name="error_no_recordings_title">No recordings</string>
+  <string name="error_connection_title">Connection Error</string>
+  <string name="error_server_title">Server Error</string>
+  <string name="error_no_recordings_text">You don\'t have any recordings! Start recording to see your data.</string>
+  <string name="error_connection_text">Make sure you\'re connected to the internet and try again.</string>
+  <string name="error_server_text">Looks like our servers are having issues. Please try again later.</string>
+  <!-- TODO: Remove or change this placeholder text -->
+  <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>

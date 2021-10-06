@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent">
+
+  <View
+    android:id="@+id/connectivity_bar_disconnected"
+    android:layout_width="0dp"
+    android:layout_height="10dp"
+    android:layout_marginTop="12dp"
+    android:background="@drawable/view_connectivity_bar_disconnected"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
+  <View
+    android:id="@+id/connectivity_bar"
+    android:layout_width="0dp"
+    android:layout_height="10dp"
+    android:layout_marginTop="12dp"
+    android:background="@drawable/view_connectivity_bar_connected"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
+  <TextView
+    android:id="@+id/connectivity_text"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:fontFamily="@font/work_sans"
+    android:text="@string/hikes_connectivity"
+    android:textColor="@color/gray"
+    app:layout_constraintStart_toStartOf="@+id/connectivity_bar_disconnected"
+    app:layout_constraintTop_toBottomOf="@+id/connectivity_bar_disconnected" />
+
+  <TextView
+    android:id="@+id/connectivity_percentage"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="4dp"
+    android:fontFamily="@font/work_sans_medium"
+    android:text="100%"
+    android:textColor="@color/green"
+    android:textSize="18sp"
+    app:layout_constraintEnd_toEndOf="@+id/connectivity_bar_disconnected"
+    app:layout_constraintTop_toBottomOf="@+id/connectivity_bar_disconnected" />
+</androidx.constraintlayout.widget.ConstraintLayout>

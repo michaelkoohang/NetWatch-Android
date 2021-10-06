@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:id="@+id/main_graph"
+  app:startDestination="@id/recordings">
+
+  <fragment
+    android:id="@+id/recordings"
+    android:name="com.michaelkoohang.netwatch.ui.recordings.RecordingsFragment"
+    android:label="fragment_recordings"
+    tools:layout="@layout/fragment_recordings" >
+    <action
+      android:id="@+id/action_recordings_dest_to_recording_detail"
+      app:destination="@id/recording_detail"
+      app:enterAnim="@anim/slide_in"
+      app:exitAnim="@anim/slide_out"
+      app:popEnterAnim="@anim/slide_in"
+      app:popExitAnim="@anim/slide_out"
+      app:popUpTo="@id/recordings" />
+  </fragment>
+  <fragment
+    android:id="@+id/map"
+    android:name="com.michaelkoohang.netwatch.ui.record.MapFragment"
+    android:label="fragment_map"
+    tools:layout="@layout/fragment_map" >
+    <action
+      android:id="@+id/action_map_to_location_permission"
+      app:destination="@id/location_permission" />
+  </fragment>
+  <fragment
+    android:id="@+id/settings"
+    android:name="com.michaelkoohang.netwatch.ui.settings.SettingsFragment"
+    android:label="fragment_settings"
+    tools:layout="@layout/fragment_settings" />
+  <fragment
+    android:id="@+id/location_permission"
+    android:name="com.michaelkoohang.netwatch.ui.record.PermissionsFragment"
+    android:label="fragment_location_permissions"
+    tools:layout="@layout/fragment_permissions" >
+    <action
+      android:id="@+id/action_location_permission_to_map"
+      app:destination="@id/map" />
+  </fragment>
+  <fragment
+    android:id="@+id/recording_detail"
+    android:name="com.michaelkoohang.netwatch.ui.recordings.RecordingDetailFragment"
+    android:label="fragment_recording_detail"
+    tools:layout="@layout/fragment_recording_detail" />
+  <fragment
+    android:id="@+id/record"
+    android:name="com.michaelkoohang.netwatch.ui.record.RecordFragment"
+    android:label="fragment_record"
+    tools:layout="@layout/fragment_record" >
+    <action
+      android:id="@+id/action_record_to_map"
+      app:destination="@id/map"
+      app:enterAnim="@anim/fade_in"
+      app:exitAnim="@anim/fade_out"
+      app:popEnterAnim="@anim/fade_in"
+      app:popExitAnim="@anim/fade_out" />
+    <action
+      android:id="@+id/action_record_to_location_permission"
+      app:destination="@id/location_permission"
+      app:enterAnim="@anim/fade_in"
+      app:exitAnim="@anim/fade_out"
+      app:popEnterAnim="@anim/fade_in"
+      app:popExitAnim="@anim/fade_out" />
+  </fragment>
+</navigation>

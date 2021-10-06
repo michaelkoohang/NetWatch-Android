@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  tools:context=".ui.onboarding.OnbPrivacyFragment">
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+      android:id="@+id/privacy_policy_btn"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="16dp"
+      android:background="@drawable/button_netwatch"
+      android:fontFamily="@font/work_sans_semibold"
+      android:paddingStart="16dp"
+      android:paddingEnd="16dp"
+      android:text="@string/onb_privacy_policy_button"
+      android:textColor="@android:color/white"
+      android:textSize="14sp"
+      app:layout_constraintStart_toStartOf="@+id/onb_privacy_text"
+      app:layout_constraintTop_toBottomOf="@+id/onb_privacy_text" />
+
+    <CheckBox
+      android:id="@+id/agree_privacy_checkbox"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginBottom="72dp"
+      android:fontFamily="@font/work_sans"
+      android:paddingStart="8dp"
+      android:text="@string/onb_privacy_terms_agreement"
+      android:textSize="18sp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="@+id/onb_privacy_text"
+      app:layout_constraintStart_toStartOf="@+id/onb_privacy_text" />
+
+    <TextView
+      android:id="@+id/onb_privacy_title"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="32dp"
+      android:layout_marginTop="24dp"
+      android:layout_marginEnd="32dp"
+      android:fontFamily="@font/work_sans_medium"
+      android:text="@string/onb_privacy_title"
+      android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+      android:textColor="@color/black"
+      android:textStyle="bold"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+      android:id="@+id/onb_privacy_text"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="8dp"
+      android:fontFamily="@font/work_sans"
+      android:text="@string/onb_privacy_text"
+      android:textSize="18sp"
+      app:layout_constraintEnd_toEndOf="@+id/onb_privacy_title"
+      app:layout_constraintStart_toStartOf="@+id/onb_privacy_title"
+      app:layout_constraintTop_toBottomOf="@+id/onb_privacy_title" />
+
+    <Button
+      android:id="@+id/terms_btn"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="12dp"
+      android:background="@drawable/button_netwatch"
+      android:fontFamily="@font/work_sans_semibold"
+      android:paddingStart="16dp"
+      android:paddingEnd="16dp"
+      android:text="@string/onb_privacy_terms_button"
+      android:textColor="@color/white"
+      app:layout_constraintStart_toStartOf="@+id/privacy_policy_btn"
+      app:layout_constraintTop_toBottomOf="@+id/privacy_policy_btn" />
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

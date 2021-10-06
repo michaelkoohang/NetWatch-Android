@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:id="@+id/nav_graph"
+  app:startDestination="@id/start">
+  <fragment
+    android:id="@+id/main"
+    android:name="com.michaelkoohang.netwatch.ui.main.MainFragment"
+    android:label="fragment_main"
+    tools:layout="@layout/fragment_main" />
+  <fragment
+    android:id="@+id/onboarding"
+    android:name="com.michaelkoohang.netwatch.ui.onboarding.OnboardingFragment"
+    android:label="fragment_onboarding"
+    tools:layout="@layout/fragment_onboarding" >
+    <action
+      android:id="@+id/action_onboarding_fragment_to_main_fragment"
+      app:destination="@id/main"
+      app:enterAnim="@anim/slide_in"
+      app:exitAnim="@anim/slide_out"
+      app:popEnterAnim="@anim/slide_in"
+      app:popExitAnim="@anim/slide_out" />
+  </fragment>
+  <fragment
+    android:id="@+id/start"
+    android:name="com.michaelkoohang.netwatch.ui.StartFragment"
+    android:label="fragment_start" >
+    <action
+      android:id="@+id/action_start_to_onboarding_fragment"
+      app:destination="@id/onboarding"
+      app:enterAnim="@anim/fade_in"
+      app:exitAnim="@anim/fade_out"
+      app:popEnterAnim="@anim/fade_in"
+      app:popExitAnim="@anim/fade_out" />
+    <action
+      android:id="@+id/action_start_to_main_fragment"
+      app:destination="@id/main"
+      app:enterAnim="@anim/fade_in"
+      app:exitAnim="@anim/fade_out"
+      app:popEnterAnim="@anim/fade_in"
+      app:popExitAnim="@anim/fade_out"/>
+  </fragment>
+</navigation>
