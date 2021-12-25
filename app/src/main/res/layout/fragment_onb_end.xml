@@ -15,7 +15,7 @@
       android:layout_width="0dp"
       android:layout_height="wrap_content"
       android:layout_marginEnd="28dp"
-      android:fontFamily="@font/work_sans"
+      android:fontFamily="@font/ubuntu"
       android:text="@string/onb_end_text"
       android:textColor="@android:color/black"
       android:textSize="48sp"
@@ -31,7 +31,7 @@
       android:layout_height="50dp"
       android:layout_marginStart="28dp"
       android:layout_marginBottom="16dp"
-      android:contentDescription="@string/cd_hikernet_logo"
+      android:contentDescription="@string/cd_netwatch_logo"
       android:src="@drawable/ic_mountain_signal"
       app:layout_constraintBottom_toTopOf="@+id/onb_end_text"
       app:layout_constraintStart_toStartOf="parent" />

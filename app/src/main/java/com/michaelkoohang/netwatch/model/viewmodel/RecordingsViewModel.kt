@@ -20,7 +20,7 @@ class RecordingsViewModel : ViewModel() {
     /**
      * Callback that handles response from API
      */
-    private val hikesCallback = object : Callback<MutableList<RecordingResponse>> {
+    private val recordingsCallback = object : Callback<MutableList<RecordingResponse>> {
         fun selector(h: RecordingResponse): Long = FormatManager.getEpochTime(h.start!!)
 
         override fun onFailure(call: Call<MutableList<RecordingResponse>>, t: Throwable) {
@@ -32,10 +32,10 @@ class RecordingsViewModel : ViewModel() {
                 response: Response<MutableList<RecordingResponse>>
         ) {
             if (response.isSuccessful) {
-                val hikeResponse = response.body() as ArrayList<RecordingResponse>
-                if (hikeResponse.size > 0) {
-                    hikeResponse.sortByDescending { selector(it) }
-                    recordings.value = hikeResponse
+                val recordingResponse = response.body() as ArrayList<RecordingResponse>
+                if (recordingResponse.size > 0) {
+                    recordingResponse.sortByDescending { selector(it) }
+                    recordings.value = recordingResponse
                 } else {
                     recordings.value = ArrayList()
                     error.value = ApiError.NO_RECORDINGS
@@ -51,7 +51,7 @@ class RecordingsViewModel : ViewModel() {
      * Loads recordings from API
      */
     fun loadRecordings() {
-        RecordingRepository.getRecordingData(hikesCallback)
+        RecordingRepository.getRecordingData(recordingsCallback)
     }
 
     /**

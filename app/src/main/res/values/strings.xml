@@ -49,7 +49,7 @@
 
   <!-- Recordings -->
 
-  <string name='recordings_your_recordings'>Your recordings</string>
+  <string name='recordings_your_recordings'>Your Data</string>
   <string name='recordings_recent_activity'>Recent Activity</string>
   <string name='recordings_recordings'>recordings</string>
   <string name='recordings_time'>time</string>

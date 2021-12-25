@@ -29,7 +29,7 @@
       app:destination="@id/location_permission" />
   </fragment>
   <fragment
-    android:id="@+id/settings"
+    android:id="@+id/menu_settings"
     android:name="com.michaelkoohang.netwatch.ui.settings.SettingsFragment"
     android:label="fragment_settings"
     tools:layout="@layout/fragment_settings" />
@@ -48,7 +48,7 @@
     android:label="fragment_recording_detail"
     tools:layout="@layout/fragment_recording_detail" />
   <fragment
-    android:id="@+id/record"
+    android:id="@+id/menu_record"
     android:name="com.michaelkoohang.netwatch.ui.record.RecordFragment"
     android:label="fragment_record"
     tools:layout="@layout/fragment_record" >

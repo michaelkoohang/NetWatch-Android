@@ -71,9 +71,7 @@ object FormatManager {
         cal.time = displayIsoDateFormatter.parse(date)
 
         val timeOfDay = cal.get(Calendar.HOUR_OF_DAY)
-        val dayOfWeek = cal.get(Calendar.DAY_OF_WEEK)
         var timeOfDayString = ""
-        var dayOfWeekString = ""
 
         timeOfDayString = when {
             timeOfDay < 12 -> {
@@ -87,17 +85,6 @@ object FormatManager {
             }
         }
 
-        dayOfWeekString = when {
-            dayOfWeek == 1 ->  "Sunday"
-            dayOfWeek == 2 -> "Monday"
-            dayOfWeek == 3 -> "Tuesday"
-            dayOfWeek == 4 -> "Wednesday"
-            dayOfWeek == 5 -> "Thursday"
-            dayOfWeek == 6 -> "Friday"
-            dayOfWeek == 7 -> "Saturday"
-            else -> ""
-        }
-
-        return "$dayOfWeekString $timeOfDayString"
+        return "$timeOfDayString Recording"
     }
 }
