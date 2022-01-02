@@ -10,7 +10,6 @@ import android.telephony.PhoneStateListener
 import android.telephony.ServiceState
 import android.telephony.TelephonyManager
 import androidx.core.app.NotificationCompat
-import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import com.google.android.gms.location.*
 import com.michaelkoohang.netwatch.R
 import com.michaelkoohang.netwatch.model.db.Feature
@@ -32,7 +31,6 @@ class MeasureService : Service() {
 
     companion object {
         private const val CHANNEL_ID = "ForegroundServiceChannel"
-        private const val RECORD_INTERVAL: Long = 30 * 1000
         private const val LOCATION_UPDATE_INTERVAL: Long = 5 * 1000
         private const val MAX_WAIT_TIME: Long = 10 * 1000
         var recordingInProgress = false
@@ -54,6 +52,7 @@ class MeasureService : Service() {
     private var carrier: String? = null
     private val points = ArrayList<Location>()
     private var firstLocationCall = true
+    private var measurementFrequency: Long = 10
 
     // Network and device API managers
     private lateinit var wakeLock: PowerManager.WakeLock
@@ -121,6 +120,11 @@ class MeasureService : Service() {
         // Get carrier from data store
         carrier = runBlocking { DataStoreManager.carrierFlow.first() }
 
+        // Get measurment frequency from data store
+        measurementFrequency = getSecondsFromFrequency(runBlocking {
+            DataStoreManager.measurementFrequencyFlow.first()
+        }) * 1000
+
         // Acquire database and create recording
         realm = Realm.getDefaultInstance()
         startRecording()
@@ -146,7 +150,6 @@ class MeasureService : Service() {
         recordingInProgress = false
         firstLocationCall = true
         wakeLock.release()
-        uiHandler.removeCallbacks(updateUI)
         featureHandler.removeCallbacks(updateFeature)
         recordingHandler.removeCallbacks(updateRecording)
         fusedLocationProviderClient.removeLocationUpdates(locationCallback)
@@ -178,26 +181,15 @@ class MeasureService : Service() {
         startForeground(1, notification)
     }
 
-    /** Handlers for repeated tasks such as updating the ui, saving the features, and
+    /** Handlers for repeated tasks such as saving the features and
      *  updating the current recording
      */
-
-    // Updates the UI every second
-    private val uiHandler = Handler()
-    private val updateUI = object : Runnable {
-        override fun run() {
-            uiHandler.postDelayed(this, 1000)
-            val elapsedTime = FormatManager.getCurrentTimeElapsed(recording.start)
-            sendTime(elapsedTime)
-            sendDistanceAndConnection()
-        }
-    }
 
     // Saves a new feature every 30 seconds.
     private val featureHandler = Handler()
     private val updateFeature = object : Runnable {
         override fun run() {
-            featureHandler.postDelayed(this, RECORD_INTERVAL)
+            featureHandler.postDelayed(this, measurementFrequency)
             timestamp = FormatManager.getIsoDate(Date())
             battery = batteryManager.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY)
 
@@ -231,7 +223,6 @@ class MeasureService : Service() {
             recording.manufacturer = Build.MANUFACTURER.substring(0, 1).toUpperCase(Locale.ROOT) + Build.MANUFACTURER.substring(1)
         }
         recordingInProgress = true
-        uiHandler.post(updateUI)
         featureHandler.post(updateFeature)
         recordingHandler.post(updateRecording)
     }
@@ -290,24 +281,6 @@ class MeasureService : Service() {
         }
     }
 
-    /** Broadcast methods
-     */
-
-    // Sends time to the UI.
-    private fun sendTime(duration: Long) {
-        val intent = Intent("ServiceTimeUpdates")
-        intent.putExtra("Seconds", duration)
-        LocalBroadcastManager.getInstance(applicationContext).sendBroadcast(intent)
-    }
-
-    // Sends accumulated distance and connectivity status to the UI.
-    private fun sendDistanceAndConnection() {
-        val intent = Intent("ServiceDistanceConnectionUpdates")
-        intent.putExtra("Distance", distance)
-        intent.putExtra("Connected", connected)
-        LocalBroadcastManager.getInstance(applicationContext).sendBroadcast(intent)
-    }
-
     /** Helper functions
      */
 
@@ -348,5 +321,16 @@ class MeasureService : Service() {
             TelephonyManager.NETWORK_TYPE_NR -> return "NEW_RADIO_5G"
         }
         return ""
+    }
+
+    private fun getSecondsFromFrequency(frequency: String): Long {
+        when (frequency) {
+            "10 s" -> return 10
+            "30 s" -> return 30
+            "1 min" -> return 60
+            "3 min" -> return 180
+            "5 min" -> return 300
+        }
+        return 0
     }
 }

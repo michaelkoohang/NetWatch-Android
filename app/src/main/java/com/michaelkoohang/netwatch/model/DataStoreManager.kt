@@ -15,6 +15,7 @@ object DataStoreManager {
     private val ONBOARD_COMPLETE = booleanPreferencesKey("onboard_complete")
     private val DEVICE_ID = stringPreferencesKey("device_id")
     private val CARRIER = stringPreferencesKey("carrier")
+    private val MEASUREMENT_FREQUENCY = stringPreferencesKey("measurement_frequency")
 
     suspend fun saveOnboardComplete(complete: Boolean) {
         mDataStore.edit { dataStore ->
@@ -34,6 +35,12 @@ object DataStoreManager {
         }
     }
 
+    suspend fun saveMeasurementFrequency(frequency: String) {
+        mDataStore.edit { dataStore ->
+            dataStore[MEASUREMENT_FREQUENCY] = frequency
+        }
+    }
+
     val onboardCompleteFlow: Flow<Boolean> = mDataStore.data.map { dataStore ->
         dataStore[ONBOARD_COMPLETE] ?: false
     }
@@ -44,5 +51,9 @@ object DataStoreManager {
 
     val carrierFlow: Flow<String> = mDataStore.data.map { dataStore ->
         dataStore[CARRIER] ?: ""
+    }
+
+    val measurementFrequencyFlow: Flow<String> = mDataStore.data.map { dataStore ->
+        dataStore[MEASUREMENT_FREQUENCY] ?: "10 s"
     }
 }

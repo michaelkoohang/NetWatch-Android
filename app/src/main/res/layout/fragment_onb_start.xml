@@ -15,7 +15,7 @@
       android:layout_width="0dp"
       android:layout_height="wrap_content"
       android:layout_marginEnd="28dp"
-      android:fontFamily="@font/ubuntu"
+      android:fontFamily="sans-serif"
       android:text="@string/onb_welcome"
       android:textColor="@android:color/black"
       android:textSize="48sp"

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:background="#FFFFFF"
+  android:fitsSystemWindows="false"
+  tools:context=".ui.record.RecordMainFragment">
+
+  <TextView
+    android:id="@+id/record_title"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="24dp"
+    android:layout_marginTop="18dp"
+    android:fontFamily="sans-serif-medium"
+    android:text="@string/menu_record"
+    android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+    android:textColor="@color/black"
+    android:textSize="28sp"
+    android:textStyle="normal"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
+  <Switch
+    android:id="@+id/recording_switch"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="24dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginEnd="24dp"
+    android:minHeight="32dp"
+    android:text="Recording"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/record_title" />
+
+  <Spinner
+    android:id="@+id/spinner"
+    android:layout_width="0dp"
+    android:layout_height="50dp"
+    android:layout_marginStart="24dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginEnd="24dp"
+    android:background="#F6F6F6"
+    android:entries="@array/recording_frequency_array"
+    android:paddingStart="8dp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.0"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/recording_switch" />
+
+  <TextView
+    android:id="@+id/textView"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:text="Measurement Frequency"
+    android:textSize="12sp"
+    app:layout_constraintStart_toStartOf="@+id/spinner"
+    app:layout_constraintTop_toBottomOf="@+id/spinner" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
