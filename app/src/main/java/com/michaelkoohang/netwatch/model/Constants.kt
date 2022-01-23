@@ -2,5 +2,5 @@ package com.michaelkoohang.netwatch.model
 
 object Constants {
     private val env = "prod"
-    val apiUrl = if (env == "prod") "https://netwatch.rnoc.gatech.edu" else "https://3e3d-2600-8807-a740-7f00-351a-1528-aa4e-adae.ngrok.io"
+    val apiUrl = if (env == "prod") "https://hikernet.rnoc.gatech.edu" else "https://0c25-2601-1c0-6100-3570-13f-830f-ed58-b881.ngrok.io"
 }

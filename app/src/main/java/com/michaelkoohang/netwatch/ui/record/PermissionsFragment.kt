@@ -17,40 +17,52 @@ class PermissionsFragment : Fragment() {
     private var _binding: FragmentPermissionsBinding? = null
     private val binding get() = _binding!!
 
-    private val permissions = arrayOf(
+    private val standardPermissions = arrayOf(
         Manifest.permission.ACCESS_FINE_LOCATION,
-        Manifest.permission.ACCESS_BACKGROUND_LOCATION,
+        Manifest.permission.ACCESS_COARSE_LOCATION,
         Manifest.permission.READ_PHONE_STATE
     )
+
+    private val backgroundPermissions = arrayOf(
+        Manifest.permission.ACCESS_BACKGROUND_LOCATION,
+    )
+
+    private val standardPermissionRequest = registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { permission ->
+        if (permission[standardPermissions[0]] == true && permission[standardPermissions[1]] == true && permission[standardPermissions[2]] == true) {
+            backgroundPermissionsRequest.launch(backgroundPermissions[0])
+        }
+    }
+
+    private val backgroundPermissionsRequest = registerForActivityResult(ActivityResultContracts.RequestPermission()) { permission ->
+        if (permission) {
+            findNavController().navigate(R.id.action_location_permission_to_map)
+        }
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         _binding = FragmentPermissionsBinding.inflate(inflater, container, false)
 
-        val locationPermission = registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { permission ->
-            if (permission[permissions[0]] == true && permission[permissions[1]] == true && permission[permissions[2]] == true) {
-                findNavController().navigate(R.id.action_location_permission_to_map)
-            }
-        }
+        return binding.root
+    }
 
-        val alertDialog = activity.let {
-            val builder = AlertDialog.Builder(it)
-            builder.apply {
-                setTitle(R.string.permission_title)
-                setMessage(R.string.permission_dialog_text)
-                setNegativeButton(R.string.permission_dialog_cancel, null)
-                setPositiveButton(R.string.permission_dialog_ok) { _, _ ->
-                    locationPermission.launch(permissions)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.permissionsButton.setOnClickListener {
+            val alertDialog = activity.let {
+                val builder = AlertDialog.Builder(activity)
+                builder.apply {
+                    setTitle(R.string.permission_title)
+                    setMessage(R.string.permission_dialog_text)
+                    setPositiveButton(R.string.permission_dialog_ok) { _, _ ->
+                        standardPermissionRequest.launch(standardPermissions)
+                    }
                 }
+                builder.create()
             }
-            builder.create()
-        }
-
-        binding.permissionsButton.setOnClickListener{
             alertDialog.show()
         }
-
-        return binding.root
     }
 
     override fun onResume() {

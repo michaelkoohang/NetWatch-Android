@@ -21,7 +21,8 @@
         <activity
           android:name="com.michaelkoohang.netwatch.ui.main.MainActivity"
           android:launchMode="singleInstance"
-          android:screenOrientation = "portrait">
+          android:screenOrientation = "portrait"
+          android:noHistory="false">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -29,7 +30,9 @@
             </intent-filter>
         </activity>
 
-        <service android:name="com.michaelkoohang.netwatch.service.MeasureService" />
+        <service
+          android:name="com.michaelkoohang.netwatch.service.MeasureService"
+          android:foregroundServiceType="location"/>
     </application>
 
 </manifest>
