@@ -185,7 +185,7 @@ class MeasureService : Service() {
      *  updating the current recording
      */
 
-    // Saves a new feature every 30 seconds.
+    // Saves a new feature every x seconds.
     private val featureHandler = Handler()
     private val updateFeature = object : Runnable {
         override fun run() {

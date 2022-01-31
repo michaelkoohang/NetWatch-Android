@@ -40,6 +40,6 @@ data class FeatureResponse(
     @SerializedName("notes")
     val notes: String? = null,
 
-    @SerializedName("recording_id")
-    val recordingId: Int? = null
+    @SerializedName("hike_id")
+    val hikeId: Int? = null
 ) : Serializable

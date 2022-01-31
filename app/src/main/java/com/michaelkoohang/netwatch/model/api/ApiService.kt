@@ -14,12 +14,12 @@ interface ApiService {
     @POST("/api/auth/register")
     fun getId(): Call<IdResponse>
 
-    @GET("/api/recordings")
+    @GET("/api/hikes")
     fun getRecordings(
         @Header("Device-Id") deviceId: String
     ): Call<MutableList<RecordingResponse>>
 
-    @POST("/api/recordings")
+    @POST("/api/hikes")
     fun uploadRecordings(
         @Header("Device-Id") deviceId: String,
         @Body recordings: ArrayList<RecordingUpload>
